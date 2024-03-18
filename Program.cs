@@ -17,7 +17,7 @@ namespace NumberGuessingGame
             bool PlayerWon = false;
             
             int failCounter = 0;
-            string nextSteps = "placeholder";
+            string nextSteps = "";
             Random random = new Random();
             int randomNum = random.Next(1, 11);
 
@@ -47,18 +47,10 @@ namespace NumberGuessingGame
                     gameLoopDone = true;
                     PlayerWon = true;
                 }
-                
-                if (failCounter == 3)
-                {
-                    gameLoopDone = true;
-                }
-                else
-                {
-                    
-                }
 
                 if (failCounter > 2)
                 {
+                    gameLoopDone = true;
                     Console.WriteLine("You lost.");
                     Console.WriteLine();
                     Console.WriteLine("Would you like to play again? (yes/no)");
@@ -79,12 +71,9 @@ namespace NumberGuessingGame
                     failCounter = 0;
                 }
                 else if (gameLoopDone == true && nextSteps == "no")
-                { 
-                    Console.WriteLine("Cheers. Press any key to close program.");
-                }
-                else
                 {
-                    
+                    Console.WriteLine();
+                    Console.WriteLine("Cheers. Press any key to close program.");
                 }
 
             }
